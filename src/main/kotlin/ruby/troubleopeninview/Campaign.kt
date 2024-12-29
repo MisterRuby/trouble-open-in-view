@@ -15,7 +15,7 @@ class Campaign(
     @Column(nullable = false)
     val name: String,
 
-    @OneToMany(mappedBy = "campaign", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany(mappedBy = "campaign", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("campaign")
     val contracts: MutableList<Contract> = mutableListOf()
 )
